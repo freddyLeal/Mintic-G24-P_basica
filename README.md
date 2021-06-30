@@ -1,0 +1,1 @@
+# Mintic-G24-P_basica
