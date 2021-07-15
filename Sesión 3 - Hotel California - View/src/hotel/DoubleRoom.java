@@ -1,27 +1,22 @@
-package clases;
+package hotel;
 
 import java.io.Serializable;
 
-public class DoubleRoom extends Room implements Serializable {
 
+public class DoubleRoom extends Room implements Serializable {
+    
     private String name2;
     private String contact2;
     private String gender2;
 
-    public DoubleRoom(  String name, 
-                        String contact, 
-                        String gender, 
-                        double price, 
-                        int nights, 
-                        String name2, 
-                        String contact2, 
-                        String gender2) {
-        super(name, contact, gender, price, nights);
+    public DoubleRoom(String name2, String contact2, String gender2, String name, String contact, String gender, double price, int nigths) {
+        super(name, contact, gender, price, nigths);
         this.name2 = name2;
         this.contact2 = contact2;
         this.gender2 = gender2;
     }
 
+    
     /**
      * @return the name2
      */
@@ -32,7 +27,7 @@ public class DoubleRoom extends Room implements Serializable {
     /**
      * @param name2 the name2 to set
      */
-    public void setName2(String name2) {
+    public void setName2(String name2){
         this.name2 = name2;
     }
 
