@@ -1,27 +1,27 @@
 package memory;
 
-import hotel.Holder;
+import clases.Holder;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
 
 public class Write implements Runnable {
+
+    Holder holder;
     
-    private Holder holder;
-    
-    public Write( Holder holder){
+    public Write(Holder holder){
         this.holder = holder;
     }
-
     
     @Override
     public void run() {
         try{
-            FileOutputStream fos = new FileOutputStream("backup");
-            ObjectOutputStream oos = new ObjectOutputStream( fos );
+            System.out.println("Guardando en memoria");
+            FileOutputStream out = new FileOutputStream("backup");
+            ObjectOutputStream oos = new ObjectOutputStream( out );
             oos.writeObject( this.holder );
-        } catch(Exception e){
-            System.out.println("Error al guardar la información.");
+        }catch(Exception e){
+            System.out.println("No se pudo guardar el archivo: " + e);
         }
     }
     

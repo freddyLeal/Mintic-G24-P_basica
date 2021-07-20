@@ -1,4 +1,4 @@
-package hotel;
+package clases;
 
 import java.io.Serializable;
 

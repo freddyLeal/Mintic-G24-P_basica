@@ -1,4 +1,4 @@
-package hotel;
+package clases;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,17 +10,23 @@ public class Room implements Serializable{
     private String contact;
     private String gender;
     private double price;
-    private int nigths;
+    private int nights;
     private ArrayList<Food> foodList = new ArrayList();
+    
+    
 
     
-    public Room(String name, String contact, String gender, double price, int nigths) {
+    
+    public Room(String name, String contact, String gender, double price, int nights) {
         this.name = name;
         this.contact = contact;
         this.gender = gender;
         this.price = price;
-        this.nigths = nigths;
+        this.nights = nights;
     }
+
+
+
     
     /**
      * @return the name
@@ -79,17 +85,17 @@ public class Room implements Serializable{
     }
 
     /**
-     * @return the nigths
+     * @return the nights
      */
-    public int getNigths() {
-        return nigths;
+    public int getNights() {
+        return nights;
     }
 
     /**
-     * @param nigths the nigths to set
+     * @param nights the nights to set
      */
-    public void setNigths(int nigths) {
-        this.nigths = nigths;
+    public void setNights(int nights) {
+        this.nights = nights;
     }
 
     /**
@@ -100,13 +106,22 @@ public class Room implements Serializable{
     }
 
     /**
-     * @param foodList the foodList to set
+     * @param food
      */
     public void addFood(Food food) {
         this.foodList.add(food);
     }
     
+    /**
+     * @param food 
+     */
+    public void removeFood(Food food){
+        this.foodList.remove(food);
+    }
     
-        
+    
+   
+    
+    
     
 }
