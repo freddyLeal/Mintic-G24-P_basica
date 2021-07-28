@@ -14,6 +14,7 @@ public class DB {
         try{
             Class.forName( driver );
         }catch(Exception e){
+            e.printStackTrace();
             System.err.println("No se puede conectar a la base de datos.");
         }
     }

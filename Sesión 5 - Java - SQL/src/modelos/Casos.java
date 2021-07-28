@@ -1,8 +1,9 @@
 package modelos;
 
 import java.util.Date;
+import utils.db.Perseverance;
 
-public class Casos {
+public class Casos extends Perseverance{
     
     private Integer id;
     private Date fechaReporteWeb;
@@ -232,6 +233,21 @@ public class Casos {
      */
     public void setMunicipio(Municipio municipio) {
         this.municipio = municipio;
+    }
+
+    @Override
+    public Object get(Integer id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Integer save() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Integer delete() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
