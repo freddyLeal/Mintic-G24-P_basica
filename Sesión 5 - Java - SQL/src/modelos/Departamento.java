@@ -55,7 +55,7 @@ public class Departamento extends Perseverance{
     
     
     @Override
-    public Integer save(){
+    public Integer save() throws Exception{
         String query;
         
         try(Connection conn = createConnection()){
@@ -82,7 +82,7 @@ public class Departamento extends Perseverance{
                     
         } catch(Exception e){
             e.printStackTrace();
-            System.err.println("Error al crear/editar el registro en la tabla departamento");
+            throw new Exception("Error al crear/editar el registro en la tabla departamento");
         }
         
         return this.id;
@@ -103,7 +103,7 @@ public class Departamento extends Perseverance{
             if( rows > 0 ){
                 ResultSet generateKeys = statement.getGeneratedKeys();
                 if( generateKeys.next() )
-                    this.id = generateKeys.getInt(1);
+                    id = generateKeys.getInt(1);
             }
                     
         } catch(Exception e){
