@@ -18,4 +18,8 @@ public abstract class Perseverance {
         return this.db.createConnection();
     }
     
+    public Connection createDBTesting(){
+        return this.db.startTestDB();
+    }
+    
 }
