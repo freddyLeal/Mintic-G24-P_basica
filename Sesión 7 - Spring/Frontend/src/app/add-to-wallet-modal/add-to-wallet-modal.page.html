@@ -1,0 +1,37 @@
+<ion-header [translucent]="false">
+  <ion-toolbar color="fintech">
+    <ion-title class="ion-text-center">
+      Add To Wallet
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+    <ion-list-header>
+      Type and Amount
+    </ion-list-header>
+    <ion-item>
+      <ion-label position="floating">Transaction Type*</ion-label>
+      <ion-select #selectPackage [(ngModel)]="itemForm.type">
+        <ion-select-option value="">Select a Transaction Type...</ion-select-option>
+        <ion-select-option value="{{item.id}}" *ngFor="let item of reloadType">{{item.name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Amount*</ion-label>
+      <ion-input [(ngModel)]="itemForm.amount" type="number"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+      <ion-buttons slot="end">
+          <ion-button fill="clear" color="medium" (click)="closeModal()">Cancel</ion-button>
+          <ion-button fill="clear" color="primary" (click)="save()">Add</ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

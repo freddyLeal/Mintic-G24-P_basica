@@ -1,0 +1,62 @@
+<ion-header [translucent]="false">
+  <ion-toolbar color="fintech">
+    <ion-title class="ion-text-center">
+      Wallet
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  <ion-list *ngIf="userInfo && userInfo.wallet">
+    <ion-list-header>
+      Your Money
+    </ion-list-header>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="https://previews.123rf.com/images/rrraven/rrraven1403/rrraven140300296/26428248-money-icon.jpg">
+      </ion-avatar>
+      <ion-label color="fintech">
+        <h2>Wallet</h2>
+        <h3 style="text-align: right; font-size: 26px;">{{userInfo.wallet.amount | currency}}</h3>
+        <p>Principal money in your account</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      Last Movements
+    </ion-list-header>
+
+    <ion-item *ngFor="let log of walletLog">
+      <ion-avatar slot="start">
+        <img *ngIf="log.transactionType.isDebit===false" src="https://banner2.cleanpng.com/20191121/kvu/transparent-make-a-donation-icon-gestures-icon-money-icon-5e9457d4681310.0740558915867801164263.jpg">
+        <img *ngIf="log.transactionType.isDebit===true" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVux2wtF3KSXQu0jPym0FhpnLA-OjeTrDtfw&usqp=CAU">
+      </ion-avatar>
+      <ion-label color="{{log.transactionType.isDebit===true?'danger':'secondary'}}">
+        <h2>{{log.transactionType.name}}</h2>
+        <h3 style="text-align: right;">{{log.amount | currency}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+      <ion-fab-button color="ibicol">
+          <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="left">
+          <ion-fab-button color="twitter" (click)="prepareAddToWallet()">
+              <ion-icon name="arrow-redo-outline"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-button color="instagram" (click)="prepareRetireToWallet()">
+              <ion-icon name="arrow-undo-outline"></ion-icon>
+          </ion-fab-button>
+      </ion-fab-list>
+  </ion-fab>
+  
+
+</ion-content>

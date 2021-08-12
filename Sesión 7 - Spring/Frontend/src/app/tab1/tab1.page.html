@@ -1,0 +1,41 @@
+<ion-header [translucent]="false">
+  <ion-toolbar color="fintech">
+    <ion-title class="ion-text-center">
+      User Info
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngIf="!userInfo">
+    <ion-item>
+      <ion-item lines="none"><ion-label>Loading Info</ion-label></ion-item>
+    </ion-item>
+  </ion-list> 
+
+  <ion-list *ngIf="userInfo"> 
+    <ion-item-divider>
+      <ion-label>
+        Name
+      </ion-label>
+    </ion-item-divider>
+    <ion-item lines="none"><ion-label>{{userInfo.name}} {{userInfo.lastname}}</ion-label></ion-item>
+  
+    <ion-item-divider>
+      <ion-label>
+        document type
+      </ion-label>
+    </ion-item-divider>
+    <ion-item lines="none" *ngIf="userInfo.documentType">
+      <ion-label>{{userInfo.documentType.code}} - {{userInfo.documentType.name}}</ion-label>
+    </ion-item>
+
+    <ion-item-divider>
+      <ion-label>
+        document
+      </ion-label>
+    </ion-item-divider>
+    <ion-item lines="none"><ion-label>{{userInfo.document}}</ion-label></ion-item>
+  </ion-list>
+
+</ion-content>
